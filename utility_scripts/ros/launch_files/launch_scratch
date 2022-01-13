@@ -1,0 +1,45 @@
+
+  <!-- State TF Node--> 
+    <param name="robot_description" textfile="$(find xcm_ros)/urdf/os0_sensor.urdf"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- GQ7 RTK / Inertial Nav Node -->
+    <include file="$(find xcm_ros)/launch/lord_rtk_ins.launch">
+      <arg name="name"             value = "" />
+      <arg name="port"             value = "/dev/ttyUSB0" />
+      <arg name="baudrate"         value = "115200" />
+      <arg name="imu_frame_id"     value = "imu_raw" />
+      <arg name="imu_data_rate"    value = "100" />
+      <arg name="filter_data_rate" value = "10" />
+      <arg name="gnss1_frame_id"   value = "gnss1_antenna_wgs84" />
+      <arg name="gnss2_frame_id"   value = "gnss2_antenna_wgs84" />
+      <arg name="filter_frame_id"  value = "imu_wgs84" />
+      <arg name="use_enu_frame"    value = "true" />
+    </include>
+  
+  <!-- Ouster Lidar Node-->    
+    <include file="$(find xcm_ros)/launch/ouster_lidar.launch">
+      <arg name="sensor_hostname" value="10.0.0.32"/>
+      <arg name="udp_dest" value="10.0.0.1"/>
+      <arg name="metadata" value="/home/user/.ros/ouster_os0_meta.json"/>
+      <arg name="lidar_mode" value="2048x10"/>
+      <arg name="timestamp_mode" value="TIME_FROM_PTP_1588"/>
+    </include>
+
+  <!-- RTAB Mapping Ouster Node -->
+    <include file="$(find xcm_ros)/launch/rtabmap_ouster.launch">
+      <arg name="frame_id"        value="base_link"/>
+      <arg name="imu_raw_remap"   value="/os_cloud_node/imu"/>
+      <arg name="imu_remap"       value="/os_cloud_node/imu/data"/>
+      <arg name="cloud_remap"     value="/os_cloud_node/points"/>
+      <arg name="voxel_size"      value="0.15"/>           
+      <arg name="assemble"        value="false"/>
+      <arg name="user_data_async_topic"     default="/user_data_async" />
+    </include>
+
+
+    <!-- Launch Robot Localization Node-->  
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
+      <rosparam command="load" file="$(find xcm_ros)/config/ekf_param.yaml" />
+      <remap from="odometry/filtered" to="/odom"/>
+    </node> 
