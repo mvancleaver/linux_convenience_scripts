@@ -13,7 +13,7 @@
   <arg name="timestamp_mode" default="TIME_FROM_PTP_1588" doc="method used to timestamp measurements: TIME_FROM_INTERNAL_OSC, TIME_FROM_SYNC_PULSE_IN, TIME_FROM_PTP_1588"/>
   <arg name="metadata" default="/home/user/.ros/ouster.json" doc="path to read or write metadata file when replaying or receiving sensor data, respectively"/>
   <arg name="tf_prefix" default="" doc="namespace for tf transforms"/>
-  <arg name="carto_config_dir" default="$(find xcm_ros)/config" doc="Path to cartograppher config repo"/>
+  <arg name="carto_config_dir" default="$(find robot)/config" doc="Path to cartograppher config repo"/>
   <arg name="carto_config_lua" default="xcm_lidar.lua" doc="Path to cartograppher config file"/>
   <arg name="bag_filename" default="false" doc="bag for usage "/>
 
@@ -35,7 +35,7 @@
     <param name="~/tf_prefix" value="$(arg tf_prefix)"/>
   </node>
 
-  <param name="robot_description" textfile="$(find xcm_ros)/urdf/os0_sensor.urdf"/>
+  <param name="robot_description" textfile="$(find robot)/urdf/os0_sensor.urdf"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
   <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" 
@@ -66,7 +66,7 @@
   <arg name="timestamp_mode" default="TIME_FROM_PTP_1588" doc="method used to timestamp measurements: TIME_FROM_INTERNAL_OSC, TIME_FROM_SYNC_PULSE_IN, TIME_FROM_PTP_1588"/>
   <arg name="metadata" default="/home/user/.ros/ouster.json" doc="path to read or write metadata file when replaying or receiving sensor data, respectively"/>
   <arg name="tf_prefix" default="" doc="namespace for tf transforms"/>
-  <arg name="carto_config_dir" default="$(find xcm_ros)/config" doc="Path to cartograppher config repo"/>
+  <arg name="carto_config_dir" default="$(find robot)/config" doc="Path to cartograppher config repo"/>
   <arg name="carto_config_lua" default="xcm_lidar.lua" doc="Path to cartograppher config file"/>
   <arg name="bag_filename" default="false" doc="bag for usage "/>
 
@@ -88,7 +88,7 @@
     <param name="~/tf_prefix" value="$(arg tf_prefix)"/>
   </node>
 
-  <param name="robot_description" textfile="$(find xcm_ros)/urdf/os0_sensor.urdf"/>
+  <param name="robot_description" textfile="$(find robot)/urdf/os0_sensor.urdf"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
   <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" 
@@ -112,7 +112,7 @@
   <arg name="timestamp_mode" default="TIME_FROM_PTP_1588" doc="method used to timestamp measurements: TIME_FROM_INTERNAL_OSC, TIME_FROM_SYNC_PULSE_IN, TIME_FROM_PTP_1588"/>
   <arg name="metadata" default="/home/user/.ros/ouster.json" doc="path to read or write metadata file when replaying or receiving sensor data, respectively"/>
   <arg name="tf_prefix" default="" doc="namespace for tf transforms"/>
-  <arg name="carto_config_dir" default="$(find xcm_ros)/config" doc="Path to cartograppher config repo"/>
+  <arg name="carto_config_dir" default="$(find robot)/config" doc="Path to cartograppher config repo"/>
   <arg name="carto_config_lua" default="xcm_lidar.lua" doc="Path to cartograppher config file"/>
   <arg name="bag_filename" default="false" doc="bag for usage "/>
 
@@ -134,7 +134,7 @@
     <param name="~/tf_prefix" value="$(arg tf_prefix)"/>
   </node>
 
-  <param name="robot_description" textfile="$(find xcm_ros)/urdf/os0_sensor.urdf"/>
+  <param name="robot_description" textfile="$(find robot)/urdf/os0_sensor.urdf"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
   <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" 

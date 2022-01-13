@@ -1,5 +1,5 @@
 #!/bin/bash
-LOG_FILE=/home/user/init_xCM_agx.log
+LOG_FILE=/home/user/init.log
 if [ ! -f "$LOG_FILE" ]; then
     echo "$LOG_FILE does not exist."
 ### Preinstall Setup
@@ -55,7 +55,4 @@ else
     echo "-- Built RTAB Mapping Library" >> $LOG_FILE 
     ./utility_scripts/ros/install_files/ros_install_rtab_pkg.sh
     echo "-- Installed RTAB Map ROS Packages" >> $LOG_FILE
- # ROS Custom - xCM ~~~ 
-    cp -r utility_scripts/ros/custom_pkg/xcm_ros ~/catkin_ws/src/. 
-    echo "-- Transferred xcm_ros to catkin_ws" >> $LOG_FILE 
 fi

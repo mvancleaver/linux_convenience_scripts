@@ -2,7 +2,7 @@
     <!-- 
     Ouster Lidar (synchronize timestamp with host computer time)      
       * Running:
-        roslaunch xcm_ros ouster_lidar.launch sensor_hostname:=10.0.0.32 metadata:=/home/user/.ros/ouster_os0_meta.json
+        roslaunch robot ouster_lidar.launch sensor_hostname:=10.0.0.32 metadata:=/home/user/.ros/ouster_os0_meta.json
     -->
   <arg name="namespace" default="test" doc="namespace"/>
   <arg name="sensor_hostname" default="10.0.0.32" doc="hostname or IP in dotted decimal form of the sensor"/>

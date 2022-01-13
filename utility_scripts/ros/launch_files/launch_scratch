@@ -1,10 +1,10 @@
 
   <!-- State TF Node--> 
-    <param name="robot_description" textfile="$(find xcm_ros)/urdf/os0_sensor.urdf"/>
+    <param name="robot_description" textfile="$(find robot)/urdf/os0_sensor.urdf"/>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
   <!-- GQ7 RTK / Inertial Nav Node -->
-    <include file="$(find xcm_ros)/launch/lord_rtk_ins.launch">
+    <include file="$(find robot)/launch/lord_rtk_ins.launch">
       <arg name="name"             value = "" />
       <arg name="port"             value = "/dev/ttyUSB0" />
       <arg name="baudrate"         value = "115200" />
@@ -18,7 +18,7 @@
     </include>
   
   <!-- Ouster Lidar Node-->    
-    <include file="$(find xcm_ros)/launch/ouster_lidar.launch">
+    <include file="$(find robot)/launch/ouster_lidar.launch">
       <arg name="sensor_hostname" value="10.0.0.32"/>
       <arg name="udp_dest" value="10.0.0.1"/>
       <arg name="metadata" value="/home/user/.ros/ouster_os0_meta.json"/>
@@ -27,7 +27,7 @@
     </include>
 
   <!-- RTAB Mapping Ouster Node -->
-    <include file="$(find xcm_ros)/launch/rtabmap_ouster.launch">
+    <include file="$(find robot)/launch/rtabmap_ouster.launch">
       <arg name="frame_id"        value="base_link"/>
       <arg name="imu_raw_remap"   value="/os_cloud_node/imu"/>
       <arg name="imu_remap"       value="/os_cloud_node/imu/data"/>
@@ -40,6 +40,6 @@
 
     <!-- Launch Robot Localization Node-->  
     <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
-      <rosparam command="load" file="$(find xcm_ros)/config/ekf_param.yaml" />
+      <rosparam command="load" file="$(find robot)/config/ekf_param.yaml" />
       <remap from="odometry/filtered" to="/odom"/>
     </node> 

@@ -1,6 +1,6 @@
 <launch>
   
-  <arg name="carto_config_dir" default="$(find xcm_ros)/config" doc="Path to cartograppher config repo"/>
+  <arg name="carto_config_dir" default="$(find robot)/config" doc="Path to cartograppher config repo"/>
   <arg name="carto_config_lua" default="xcm_lidar2d.lua" doc="Path to cartograppher config file"/>
   
   <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" 

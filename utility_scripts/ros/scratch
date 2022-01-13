@@ -5,7 +5,7 @@
 # Running RTAB:
     http PUT http://10.0.0.32/api/v1/time/ptp/profile <<< '"default-relaxed"'
     sudo ptp4l -i eth1 -m /etc/linuxptp/os.conf -S & 
-    roslaunch xcm_ros xcm_system.launch machine_class:=test
+    roslaunch robot system.launch machine_class:=test
 # Wifi A-Sync:
     sudo su
     source /opt/ros/melodic/setup.bash
