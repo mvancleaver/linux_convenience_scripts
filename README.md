@@ -1,2 +1,2 @@
 # linux_convenience_scripts
-Scripts to help setup/compile Linux Environments 
+Scripts i've put together over the last few years to help setup/compile Linux Environments 
