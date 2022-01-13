@@ -17,7 +17,7 @@ else
 fi
 
 ### File Logic Switch 
-FILE=/home/user/init_xCM_agx.log
+FILE=/home/user/init.log
 if [ ! -f "$FILE" ]; then
     echo "$FILE does not exist."
 else
