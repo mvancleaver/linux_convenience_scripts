@@ -50,9 +50,4 @@ else
  # ROS Melodic Base 
     ./utility_scripts/ros/install_files/ros_install_init_ws_melodic.sh
     echo "-- Installed ROS Melodic Base" >> $LOG_FILE   
- # ROS RTAB Map
-    ./utility_scripts/sdk/install_rtabmap.sh
-    echo "-- Built RTAB Mapping Library" >> $LOG_FILE 
-    ./utility_scripts/ros/install_files/ros_install_rtab_pkg.sh
-    echo "-- Installed RTAB Map ROS Packages" >> $LOG_FILE
 fi

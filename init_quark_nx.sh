@@ -61,12 +61,4 @@ else
     echo "-- Installed LORD MCSL Library" >> $LOG_FILE 
     ./utility_scripts/ros/install_files/ros_install_lord_mscl_pkg.sh
     echo "-- Installed MCSL ROS Packages" >> $LOG_FILE  
- # ROS Ouster 
-    ./utility_scripts/ros/install_files/ros_install_ouster_pkg.sh
-    echo "-- Installed Ouster ROS Packages" >> $LOG_FILE         
- # ROS RTAB Map
-    ./utility_scripts/sdk/install_rtabmap.sh
-    echo "-- Built RTAB Mapping Library" >> $LOG_FILE 
-    ./utility_scripts/ros/install_files/ros_install_rtab_pkg.sh
-    echo "-- Installed RTAB Map ROS Packages" >> $LOG_FILE
 fi
